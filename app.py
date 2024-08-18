@@ -27,7 +27,7 @@ class Student(db.Model):
 
     def __repr__(self):
         return f'<Student {self.firstname}>'
-    
+
 
 # ...
 
@@ -101,12 +101,12 @@ def delete(student_id):
     db.session.commit()
     return redirect(url_for('index'))
 
-@app.route('/getcount', methods = ['GET']) 
-def ReturnCount(): 
-    if(request.method == 'GET'): 
-        data = { 
-            "Modules" : 15, 
-            "Subject" : "Data Structures and Algorithms", 
-        } 
-  
-        return jsonify(data) 
+@app.route('/getcount', methods = ['GET'])
+def ReturnCount():
+    if(request.method == 'GET'):
+        data = {
+            "Modules" : 15,
+            "Subject" : "Data Structures and Algorithms",
+        }
+
+        return jsonify(data)
