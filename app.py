@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 from sqlalchemy.sql import func
@@ -100,3 +100,13 @@ def delete(student_id):
     db.session.delete(student)
     db.session.commit()
     return redirect(url_for('index'))
+
+@app.route('/getcount', methods = ['GET']) 
+def ReturnCount(): 
+    if(request.method == 'GET'): 
+        data = { 
+            "Modules" : 15, 
+            "Subject" : "Data Structures and Algorithms", 
+        } 
+  
+        return jsonify(data) 
